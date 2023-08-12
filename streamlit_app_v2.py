@@ -82,7 +82,7 @@ if st.session_state.messages[-1]["role"] != "assistant":
     st.session_state.messages.append(message)
 
 # Set a custom background image
-background_image_path = "assets/background.jpg"
+background_image_path = "/assets/background.jpg"
 if os.path.exists(background_image_path):
     custom_css = f"""
     <style>
