@@ -80,3 +80,17 @@ if st.session_state.messages[-1]["role"] != "assistant":
             placeholder.markdown(full_response)
     message = {"role": "assistant", "content": full_response}
     st.session_state.messages.append(message)
+
+# Set a custom background image
+background_image_path = "assets/background.jpg"
+if os.path.exists(background_image_path):
+    custom_css = f"""
+    <style>
+    body {{
+        background-image: url('{background_image_path}');
+        background-size: cover;
+        background-repeat: no-repeat;
+    }}
+    </style>
+    """
+    st.markdown(custom_css, unsafe_allow_html=True)
