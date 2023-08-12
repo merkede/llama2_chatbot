@@ -5,6 +5,9 @@ import os
 # App title
 st.set_page_config(page_title="🦙💬 Llama 2 Chatbot")
 
+# Title
+st.title("PeakSave Therapist")
+
 # Replicate Credentials
 with st.sidebar:
     st.title('🦙💬 Llama 2 Chatbot')
@@ -37,7 +40,7 @@ os.environ['REPLICATE_API_TOKEN'] = replicate_api
 
 # Store LLM generated responses
 if "messages" not in st.session_state.keys():
-    st.session_state.messages = [{"role": "assistant", "content": "I'm the dedicated PeakSave therapist. What's your problem this week?"}]
+    st.session_state.messages = [{"role": "assistant", "content": "I'm your dedicated PeakSave therapist. What's your problem this week?"}]
 
 # Display or clear chat messages
 for message in st.session_state.messages:
