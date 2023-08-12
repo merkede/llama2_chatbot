@@ -37,7 +37,7 @@ os.environ['REPLICATE_API_TOKEN'] = replicate_api
 
 # Store LLM generated responses
 if "messages" not in st.session_state.keys():
-    st.session_state.messages = [{"role": "assistant", "content": "How may I assist you today?"}]
+    st.session_state.messages = [{"role": "assistant", "content": "I'm the dedicated PeakSave therapist. What's your problem this week?"}]
 
 # Display or clear chat messages
 for message in st.session_state.messages:
@@ -45,7 +45,7 @@ for message in st.session_state.messages:
         st.write(message["content"])
 
 def clear_chat_history():
-    st.session_state.messages = [{"role": "assistant", "content": "How may I assist you today?"}]
+    st.session_state.messages = [{"role": "assistant", "content": "I'm the dedicated PeakSave therapist. What's your problem this week?"}]
 st.sidebar.button('Clear Chat History', on_click=clear_chat_history)
 
 # Function for generating LLaMA2 response
@@ -70,7 +70,7 @@ if prompt := st.chat_input(disabled=not replicate_api):
 # Generate a new response if last message is not from assistant
 if st.session_state.messages[-1]["role"] != "assistant":
     with st.chat_message("assistant"):
-        with st.spinner("Thinking..."):
+        with st.spinner("Therapy session underway..."):
             response = generate_llama2_response(prompt)
             placeholder = st.empty()
             full_response = ''
